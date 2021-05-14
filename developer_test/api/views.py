@@ -16,6 +16,13 @@ from developer_test.models import AppUser,Transaction
 @api_view(['POST', ])
 @permission_classes(())
 def registration(request):
+    """
+    This view handles user registration, the user sends a post request containing the 
+    name and username of choice in the format shown below:
+    {"name":"John Doe",
+     "username":"johndoe"}
+     Usernames are case sensitive and unique
+    """
     current_site = get_current_site(request)
     user = request.user
     name = request.data.get('name')
